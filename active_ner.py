@@ -178,6 +178,8 @@ if not os.path.exists(os.path.join(result_path, model_name, 'active_checkpoint',
 
 if opt.dataset == 'conll':
     train_data, dev_data, test_data, test_train_data, mappings = loader.load_conll(dataset_path, parameters)
+elif opt.dataset == 'twitter':
+    train_data, dev_data, test_data, test_train_data, mappings = loader.load_twitter(dataset_path, parameters)
 elif opt.dataset == 'ontonotes':
     train_data, dev_data, test_data, mappings = loader.load_ontonotes(dataset_path, parameters)
     test_train_data = train_data[-10000:]
