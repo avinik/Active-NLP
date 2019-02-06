@@ -7,7 +7,7 @@ from torch.nn import init
 from torch.autograd import Variable
 from .utils import *
 import codecs
-import cPickle
+import pickle as cPickle
 import itertools
 
 class Loader(object):
@@ -110,12 +110,14 @@ class Loader(object):
         dev_sentences = self.load_conll_sentences(dev_path, lower, zeros)
         test_sentences = self.load_conll_sentences(test_path, lower, zeros)
         test_train_sentences = self.load_conll_sentences(test_train_path, lower, zeros)
+
         
         self.update_tag_scheme(train_sentences, tag_scheme)
         self.update_tag_scheme(dev_sentences, tag_scheme)
         self.update_tag_scheme(test_sentences, tag_scheme)
         self.update_tag_scheme(test_train_sentences, tag_scheme)
-        
+
+
         dico_words_train = self.word_mapping(train_sentences, lower)[0]
         
         all_embedding = 1
@@ -133,6 +135,8 @@ class Loader(object):
         dev_data = prepare_dataset(dev_sentences, word_to_id, char_to_id, tag_to_id, lower)
         test_data = prepare_dataset(test_sentences, word_to_id, char_to_id, tag_to_id, lower)
         test_train_data = prepare_dataset(test_train_sentences, word_to_id, char_to_id, tag_to_id, lower)
+
+        print(train_data[0:10])
         
         print("%i / %i / %i sentences in train / dev / test." % (
               len(train_data), len(dev_data), len(test_data)))
