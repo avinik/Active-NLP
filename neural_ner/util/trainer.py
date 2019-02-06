@@ -10,7 +10,6 @@ import torch
 import torch.nn as nn
 from .utils import *
 
-
 class Trainer(object):
     
     def __init__(self, model, optimizer, result_path, model_name, usedataset, mappings, 

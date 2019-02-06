@@ -12,7 +12,7 @@ from neural_ner.models import CNN_CNN_LSTM_BB
 import matplotlib.pyplot as plt
 import torch
 from active_learning import Acquisition
-import cPickle as pkl
+import pickle as pkl
 import numpy as np
 
 import argparse
