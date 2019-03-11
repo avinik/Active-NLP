@@ -136,7 +136,6 @@ class Loader(object):
         test_data = prepare_dataset(test_sentences, word_to_id, char_to_id, tag_to_id, lower)
         test_train_data = prepare_dataset(test_train_sentences, word_to_id, char_to_id, tag_to_id, lower)
 
-        print(train_data[0:10])
         
         print("%i / %i / %i sentences in train / dev / test." % (
               len(train_data), len(dev_data), len(test_data)))
